@@ -1,24 +1,23 @@
-#include "QuikVec3.h"
+#include "Vec3.h"
 
-#include <cmath>
 
 
 namespace Quikmath {
 
 	// Constructors
-	QuikVec3::QuikVec3() 
+	Vec3::Vec3() 
 		: x(0.0f), y(0.0f), z(0.0f) 
 	{};
-	QuikVec3::QuikVec3(float uX, float uY, float uZ)
+	Vec3::Vec3(float uX, float uY, float uZ)
 		: x(uX), y(uY), z(uZ)
 	{};
 
 	// Copy Constructors
-	QuikVec3::QuikVec3(const QuikVec3& vec) 
+	Vec3::Vec3(const Vec3& vec) 
 		: x(vec.x), y(vec.y), z(vec.z)
 	{};
 
-	QuikVec3& QuikVec3::operator=(const QuikVec3& vec)
+	Vec3& Vec3::operator=(const Vec3& vec)
 	{
 		x = vec.x;
 		y = vec.y;
@@ -28,12 +27,12 @@ namespace Quikmath {
 	}
 	
 	// Destructor
-	QuikVec3::~QuikVec3() {};
+	Vec3::~Vec3() {};
 
 	// ---------- Operations ----------
 
 	// Addition/Subtraction
-	QuikVec3& QuikVec3::operator+=(const QuikVec3& vec)
+	Vec3& Vec3::operator+=(const Vec3& vec)
 	{
 		x += vec.x;
 		y += vec.y;
@@ -42,12 +41,12 @@ namespace Quikmath {
 		return *this;
 	}
 
-	QuikVec3 QuikVec3::operator+(const QuikVec3& vec) const
+	Vec3 Vec3::operator+(const Vec3& vec) const
 	{
-		return QuikVec3(x + vec.x, y + vec.y, z + vec.z);
+		return Vec3(x + vec.x, y + vec.y, z + vec.z);
 	}
 
-	QuikVec3& QuikVec3::operator-=(const QuikVec3& vec)
+	Vec3& Vec3::operator-=(const Vec3& vec)
 	{
 		x -= vec.x;
 		y -= vec.y;
@@ -55,13 +54,13 @@ namespace Quikmath {
 		return *this;
 	}
 
-	QuikVec3 QuikVec3::operator-(const QuikVec3& vec) const
+	Vec3 Vec3::operator-(const Vec3& vec) const
 	{
-		return QuikVec3(x - vec.x, y - vec.y, z - vec.z);
+		return Vec3(x - vec.x, y - vec.y, z - vec.z);
 	}
 	
 	// Scalar Multiplication/Division
-	QuikVec3& QuikVec3::operator*=(const float n)
+	Vec3& Vec3::operator*=(const float n)
 	{
 		x *= n;
 		y *= n;
@@ -70,12 +69,12 @@ namespace Quikmath {
 		return *this;
 	}
 
-	QuikVec3 QuikVec3::operator*(const float n) const
+	Vec3 Vec3::operator*(const float n) const
 	{
-		return QuikVec3(x * n, y * n, z * n);
+		return Vec3(x * n, y * n, z * n);
 	}
 
-	QuikVec3& QuikVec3::operator/=(const float n)
+	Vec3& Vec3::operator/=(const float n)
 	{
 		x /= n;
 		y /= n;
@@ -84,36 +83,36 @@ namespace Quikmath {
 		return *this;
 	}
 
-	QuikVec3 QuikVec3::operator/(const float n) const
+	Vec3 Vec3::operator/(const float n) const
 	{
-		return QuikVec3(x / n, y / n, z / n);
+		return Vec3(x / n, y / n, z / n);
 	}
 
 	// Dot/Cross
 
-	float QuikVec3::dot(const QuikVec3& vec) const
+	float Vec3::dot(const Vec3& vec) const
 	{
 		return x * vec.x + y * vec.y + z * vec.z;
 	}
 
 
-	QuikVec3 QuikVec3::cross(const QuikVec3& vec) const
+	Vec3 Vec3::cross(const Vec3& vec) const
 	{
-		return QuikVec3(
+		return Vec3(
 			y * vec.z - z * vec.y,
 			z * vec.x - x * vec.z,
 			x * vec.y - y * vec.x);
 	}
 
 	// Magnitude
-	float QuikVec3::magnitude()
+	float Vec3::magnitude()
 	{
 		float magnitude = std::sqrt(x * x + y * y + z * z);
 		return magnitude;
 	}
 
 	// Normalize
-	void QuikVec3::normalize()
+	void Vec3::normalize()
 	{
 		float mag = std::sqrt(x * x + y * y + z * z);
 

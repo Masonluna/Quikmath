@@ -93,11 +93,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\QuikVec3.h" />
+    <ClInclude Include="src\Vec3.h" />
+    <ClInclude Include="src\Vec2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="src\QuikVec3.cpp" />
+    <ClCompile Include="src\Vec3.cpp" />
+    <ClCompile Include="src\Vec2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
