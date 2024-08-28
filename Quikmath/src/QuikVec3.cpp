@@ -88,4 +88,23 @@ namespace Quikmath {
 	}
 
 	// Dot/Cross
+
+	float QuikVec3::operator*(const QuikVec3& vec) const
+	{
+		return x * vec.x + y * vec.y + z * vec.z;
+	}
+
+	float QuikVec3::dot(const QuikVec3& vec) const
+	{
+		return x * vec.x + y * vec.y + z * vec.z;
+	}
+
+
+	QuikVec3 QuikVec3::cross(const QuikVec3& vec) const
+	{
+		return QuikVec3(
+			y * vec.z - z * vec.y,
+			z * vec.x - x * vec.z,
+			x * vec.y - y * vec.x);
+	}
 }
