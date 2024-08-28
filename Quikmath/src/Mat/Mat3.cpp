@@ -16,9 +16,6 @@ namespace Quikmath {
 
 	Mat3::Mat3(float m0, float m3, float m6, float m1, float m4, float m7, float m2, float m5, float m8)
 	{
-		// 0    3    6
-		// 1    4    7
-		// 2    5    8
 
 		matData[0] = m0;
 		matData[3] = m3;
@@ -54,7 +51,6 @@ namespace Quikmath {
 	// Display
 	void Mat3::show()
 	{
-
 		std::cout << "[" << matData[0] << "," << matData[3] << "," << matData[6] << "," << std::endl;
 		std::cout << matData[1] << "," << matData[4] << "," << matData[7] << "," << std::endl;
 		std::cout << matData[2] << "," << matData[5] << "," << matData[8] << "]" << std::endl;

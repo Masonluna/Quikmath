@@ -3,6 +3,11 @@
 
 namespace Quikmath {
 
+	// Matrices can either be row major or column major. Mat3 is a column major matrix.
+	// 0    3    6
+	// 1    4    7
+	// 2    5    8
+
 	class Mat3
 	{
 	public:
