@@ -32,11 +32,14 @@ namespace Quikmath {
 		QuikVec3 operator/(const float n) const;
 
 		// Dot/Cross
-		float operator*(const QuikVec3& vec) const;
 		float dot(const QuikVec3& vec) const;
-
 		QuikVec3 cross(const QuikVec3& vec) const;
 
+		// Magnitude
+		float magnitude();
+
+		// Normalize
+		void normalize();
 	private:
 
 	public:

@@ -1,8 +1,10 @@
 #include "QuikVec3.h"
 
+#include <cmath>
+
 
 namespace Quikmath {
-	
+
 	// Constructors
 	QuikVec3::QuikVec3() 
 		: x(0.0f), y(0.0f), z(0.0f) 
@@ -89,11 +91,6 @@ namespace Quikmath {
 
 	// Dot/Cross
 
-	float QuikVec3::operator*(const QuikVec3& vec) const
-	{
-		return x * vec.x + y * vec.y + z * vec.z;
-	}
-
 	float QuikVec3::dot(const QuikVec3& vec) const
 	{
 		return x * vec.x + y * vec.y + z * vec.z;
@@ -106,5 +103,27 @@ namespace Quikmath {
 			y * vec.z - z * vec.y,
 			z * vec.x - x * vec.z,
 			x * vec.y - y * vec.x);
+	}
+
+	// Magnitude
+	float QuikVec3::magnitude()
+	{
+		float magnitude = std::sqrt(x * x + y * y + z * z);
+		return magnitude;
+	}
+
+	// Normalize
+	void QuikVec3::normalize()
+	{
+		float mag = std::sqrt(x * x + y * y + z * z);
+
+		if (mag > 0.0f) {
+
+			float oneOverMag = 1.0f / mag;
+
+			x *= oneOverMag;
+			y *= oneOverMag;
+			z *= oneOverMag;
+		}
 	}
 }
