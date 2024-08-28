@@ -46,6 +46,7 @@
     <IntDir>..\bin-int\Debug-windows-x86_64\Quikmath\</IntDir>
     <TargetName>Quikmath</TargetName>
     <TargetExt>.exe</TargetExt>
+    <IncludePath>$(ProjectDir)src\Vec\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -53,6 +54,7 @@
     <IntDir>..\bin-int\Release-windows-x86_64\Quikmath\</IntDir>
     <TargetName>Quikmath</TargetName>
     <TargetExt>.exe</TargetExt>
+    <IncludePath>$(ProjectDir)src\Vec\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -93,13 +95,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Vec3.h" />
-    <ClInclude Include="src\Vec2.h" />
+    <ClInclude Include="src\Mat\Mat3.h" />
+    <ClInclude Include="src\Vec\Vec3.h" />
+    <ClInclude Include="src\Vec\Vec2.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Mat\Mat3.cpp" />
     <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="src\Vec3.cpp" />
-    <ClCompile Include="src\Vec2.cpp" />
+    <ClCompile Include="src\Vec\Vec3.cpp" />
+    <ClCompile Include="src\Vec\Vec2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

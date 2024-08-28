@@ -6,7 +6,7 @@ workspace "Quikmath"
         "Release"
     }
 
-    outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+    outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cgf.architecture}"
 
     project "Quikmath"
         location "Quikmath"
@@ -23,6 +23,8 @@ workspace "Quikmath"
 
         includedirs {
             "%{prj.name}/src"
+            "%{prj.name}/src/Vec"
+            "%{prj.name}/src/Mat"
         }
 
         filter "system:windows"
