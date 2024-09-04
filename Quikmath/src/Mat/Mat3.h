@@ -25,6 +25,14 @@ namespace Quikmath {
 
 		// Display
 		void show();
+
+		// Addition/Subtraction
+		Mat3& operator+=(const Mat3& mat);
+		Mat3 operator+(const Mat3& mat);
+
+		Mat3& operator-=(const Mat3& mat);
+		Mat3 operator-(const Mat3& mat);
+
 	private:
 	public:
 		float matData[9] = { 0.0f };

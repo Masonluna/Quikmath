@@ -1,11 +1,21 @@
 #include "Vec3.h"
 
 #include <iostream>
+#include <Mat/Mat3.h>
 int main()
 {
-	Quikmath::Vec3 vec(1.0f, 1.0f, 1.0f);
-	Quikmath::Vec3 vec1(2.0f, 2.0f, 3.0f);
 
-	Quikmath::Vec3 vec2 = vec1 - vec;
-	std::cout << vec2.x << "  " << vec2.y << "  " << vec2.z << std::endl;
+    Quikmath::Mat3 m(2, 3, 1,
+        2, 1, 4,
+        5, 3, 2);
+
+    Quikmath::Mat3 n(5, 3, 2,
+        2, 1, 1,
+        5, 3, 2);
+
+    m -= n;
+
+    m.show();
+
+    return 0;
 }

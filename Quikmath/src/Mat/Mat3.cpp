@@ -55,4 +55,37 @@ namespace Quikmath {
 		std::cout << matData[1] << "," << matData[4] << "," << matData[7] << "," << std::endl;
 		std::cout << matData[2] << "," << matData[5] << "," << matData[8] << "]" << std::endl;
 	}
+
+	// Addition/Subtraction
+	Mat3& Mat3::operator+=(const Mat3& mat)
+	{
+		for (int i = 0; i < 9; i++) {
+			matData[i] += mat.matData[i];
+		}
+		return *this;
+	}
+
+	Mat3 Mat3::operator+(const Mat3& mat)
+	{
+		return Mat3(
+			matData[0] + mat.matData[0], matData[3] + mat.matData[3], matData[6] + mat.matData[6],
+			matData[1] + mat.matData[1], matData[4] + mat.matData[4], matData[7] + mat.matData[7],
+			matData[2] + mat.matData[2], matData[5] + mat.matData[5], matData[8] + mat.matData[8]);
+	}
+
+	Mat3& Mat3::operator-=(const Mat3& mat)
+	{
+		for (int i = 0; i < 9; i++) {
+			matData[i] -= mat.matData[i];
+		}
+		return *this;
+	}
+
+	Mat3 Mat3::operator-(const Mat3& mat)
+	{
+		return Mat3(
+			matData[0] - mat.matData[0], matData[3] - mat.matData[3], matData[6] - mat.matData[6],
+			matData[1] - mat.matData[1], matData[4] - mat.matData[4], matData[7] - mat.matData[7],
+			matData[2] - mat.matData[2], matData[5] - mat.matData[5], matData[8] - mat.matData[8]);
+	}
 }
