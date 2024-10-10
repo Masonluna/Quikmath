@@ -88,4 +88,21 @@ namespace Quikmath {
 			matData[1] - mat.matData[1], matData[4] - mat.matData[4], matData[7] - mat.matData[7],
 			matData[2] - mat.matData[2], matData[5] - mat.matData[5], matData[8] - mat.matData[8]);
 	}
+
+	// Scalar Multiplication/Division
+	Mat3& Mat3::operator*=(float s)
+	{
+		for (int i = 0; i < 9; i++) {
+			matData[i] *= s;
+		}
+		return *this;
+	}
+
+	Mat3 Mat3::operator*(float s)
+	{
+		return Mat3(
+			matData[0] * s, matData[3] * s, matData[6] *  s,
+			matData[1] * s, matData[4] * s, matData[7] *  s,
+			matData[2] * s, matData[5] * s, matData[8] *  s);
+	}
 }

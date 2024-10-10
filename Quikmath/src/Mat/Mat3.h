@@ -33,6 +33,13 @@ namespace Quikmath {
 		Mat3& operator-=(const Mat3& mat);
 		Mat3 operator-(const Mat3& mat);
 
+		// Scalar Multiplication/Division
+		Mat3& operator*=(float s);
+		Mat3 operator*(float s);
+
+		Mat3& operator/=(float s);
+		Mat3 operator/(float s);
+
 	private:
 	public:
 		float matData[9] = { 0.0f };
