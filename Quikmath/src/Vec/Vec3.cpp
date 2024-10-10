@@ -17,13 +17,11 @@ namespace Quikmath {
 		: x(vec.x), y(vec.y), z(vec.z)
 	{};
 
-	Vec3& Vec3::operator=(const Vec3& vec)
+	void Vec3::operator=(const Vec3& vec)
 	{
 		x = vec.x;
 		y = vec.y;
 		z = vec.z;
-		
-		return *this;
 	}
 	
 	// Destructor
@@ -32,13 +30,11 @@ namespace Quikmath {
 	// ---------- Operations ----------
 
 	// Addition/Subtraction
-	Vec3& Vec3::operator+=(const Vec3& vec)
+	void Vec3::operator+=(const Vec3& vec)
 	{
 		x += vec.x;
 		y += vec.y;
 		z += vec.z;
-
-		return *this;
 	}
 
 	Vec3 Vec3::operator+(const Vec3& vec) const
@@ -46,12 +42,11 @@ namespace Quikmath {
 		return Vec3(x + vec.x, y + vec.y, z + vec.z);
 	}
 
-	Vec3& Vec3::operator-=(const Vec3& vec)
+	void Vec3::operator-=(const Vec3& vec)
 	{
 		x -= vec.x;
 		y -= vec.y;
 		z -= vec.z;
-		return *this;
 	}
 
 	Vec3 Vec3::operator-(const Vec3& vec) const
@@ -60,13 +55,11 @@ namespace Quikmath {
 	}
 	
 	// Scalar Multiplication/Division
-	Vec3& Vec3::operator*=(const float n)
+	void Vec3::operator*=(const float n)
 	{
 		x *= n;
 		y *= n;
 		z *= n;
-
-		return *this;
 	}
 
 	Vec3 Vec3::operator*(const float n) const
@@ -74,13 +67,11 @@ namespace Quikmath {
 		return Vec3(x * n, y * n, z * n);
 	}
 
-	Vec3& Vec3::operator/=(const float n)
+	void Vec3::operator/=(const float n)
 	{
 		x /= n;
 		y /= n;
 		z /= n;
-
-		return *this;
 	}
 
 	Vec3 Vec3::operator/(const float n) const

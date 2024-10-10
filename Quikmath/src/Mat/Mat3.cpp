@@ -57,12 +57,11 @@ namespace Quikmath {
 	}
 
 	// Addition/Subtraction
-	Mat3& Mat3::operator+=(const Mat3& mat)
+	void Mat3::operator+=(const Mat3& mat)
 	{
 		for (int i = 0; i < 9; i++) {
 			matData[i] += mat.matData[i];
 		}
-		return *this;
 	}
 
 	Mat3 Mat3::operator+(const Mat3& mat)
@@ -73,12 +72,11 @@ namespace Quikmath {
 			matData[2] + mat.matData[2], matData[5] + mat.matData[5], matData[8] + mat.matData[8]);
 	}
 
-	Mat3& Mat3::operator-=(const Mat3& mat)
+	void Mat3::operator-=(const Mat3& mat)
 	{
 		for (int i = 0; i < 9; i++) {
 			matData[i] -= mat.matData[i];
 		}
-		return *this;
 	}
 
 	Mat3 Mat3::operator-(const Mat3& mat)
@@ -90,12 +88,11 @@ namespace Quikmath {
 	}
 
 	// Scalar Multiplication/Division
-	Mat3& Mat3::operator*=(float s)
+	void Mat3::operator*=(float s)
 	{
 		for (int i = 0; i < 9; i++) {
 			matData[i] *= s;
 		}
-		return *this;
 	}
 
 	Mat3 Mat3::operator*(float s)
@@ -104,5 +101,75 @@ namespace Quikmath {
 			matData[0] * s, matData[3] * s, matData[6] *  s,
 			matData[1] * s, matData[4] * s, matData[7] *  s,
 			matData[2] * s, matData[5] * s, matData[8] *  s);
+	}
+
+	void Mat3::operator*=(const Mat3& mat)
+	{
+		// 0, 3, 6
+		// 1, 4, 7
+		// 2, 5, 8
+		float t1 = matData[0] * mat.matData[0] + matData[3] * mat.matData[1] + matData[6] * mat.matData[2];
+		float t2 = matData[0] * mat.matData[3] + matData[3] * mat.matData[4] + matData[6] * mat.matData[5];
+		float t3 = matData[0] * mat.matData[6] + matData[3] * mat.matData[7] + matData[6] * mat.matData[8];
+
+		matData[0] = t1;
+		matData[3] = t2;
+		matData[6] = t3;
+
+		t1 = matData[1] * mat.matData[0] + matData[4] * mat.matData[1] + matData[7] * mat.matData[2];
+		t2 = matData[1] * mat.matData[3] + matData[4] * mat.matData[4] + matData[7] * mat.matData[5];
+		t3 = matData[1] * mat.matData[6] + matData[4] * mat.matData[7] + matData[7] * mat.matData[8];
+
+		matData[1] = t1;
+		matData[4] = t2;
+		matData[7] = t3;
+
+		t1 = matData[2] * mat.matData[0] + matData[5] * mat.matData[1] + matData[8] * mat.matData[2];
+		t2 = matData[2] * mat.matData[3] + matData[5] * mat.matData[4] + matData[8] * mat.matData[5];
+		t3 = matData[2] * mat.matData[6] + matData[5] * mat.matData[7] + matData[8] * mat.matData[8];
+
+		matData[2] = t1;
+		matData[5] = t2;
+		matData[8] = t3;
+	}
+
+	Mat3 Mat3::operator*(const Mat3& mat)
+	{
+		Mat3 m;
+		float t1 = matData[0] * mat.matData[0] + matData[3] * mat.matData[1] + matData[6] * mat.matData[2];
+		float t2 = matData[0] * mat.matData[3] + matData[3] * mat.matData[4] + matData[6] * mat.matData[5];
+		float t3 = matData[0] * mat.matData[6] + matData[3] * mat.matData[7] + matData[6] * mat.matData[8];
+
+		m.matData[0] = t1;
+		m.matData[3] = t2;
+		m.matData[6] = t3;
+
+		t1 = matData[1] * mat.matData[0] + matData[4] * mat.matData[1] + matData[7] * mat.matData[2];
+		t2 = matData[1] * mat.matData[3] + matData[4] * mat.matData[4] + matData[7] * mat.matData[5];
+		t3 = matData[1] * mat.matData[6] + matData[4] * mat.matData[7] + matData[7] * mat.matData[8];
+
+		m.matData[1] = t1;
+		m.matData[4] = t2;
+		m.matData[7] = t3;
+
+		t1 = matData[2] * mat.matData[0] + matData[5] * mat.matData[1] + matData[8] * mat.matData[2];
+		t2 = matData[2] * mat.matData[3] + matData[5] * mat.matData[4] + matData[8] * mat.matData[5];
+		t3 = matData[2] * mat.matData[6] + matData[5] * mat.matData[7] + matData[8] * mat.matData[8];
+
+		m.matData[2] = t1;
+		m.matData[5] = t2;
+		m.matData[8] = t3;
+
+		return m;
+	}
+	void Mat3::setAsIdentity()
+	{
+		for (int i = 0; i < 9; i++) {
+			matData[i] = 0;
+		}
+
+		matData[0] = 1;
+		matData[4] = 1;
+		matData[8] = 1;
 	}
 }

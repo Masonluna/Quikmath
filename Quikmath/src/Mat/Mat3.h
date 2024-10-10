@@ -27,18 +27,21 @@ namespace Quikmath {
 		void show();
 
 		// Addition/Subtraction
-		Mat3& operator+=(const Mat3& mat);
+		void operator+=(const Mat3& mat);
 		Mat3 operator+(const Mat3& mat);
 
-		Mat3& operator-=(const Mat3& mat);
+		void operator-=(const Mat3& mat);
 		Mat3 operator-(const Mat3& mat);
 
-		// Scalar Multiplication/Division
-		Mat3& operator*=(float s);
+		// Scalar Multiplication
+		void operator*=(float s);
 		Mat3 operator*(float s);
 
-		Mat3& operator/=(float s);
-		Mat3 operator/(float s);
+		// Matrix Multiplication
+		void operator*=(const Mat3& mat);
+		Mat3 operator*(const Mat3& mat);
+
+		void setAsIdentity();
 
 	private:
 	public:

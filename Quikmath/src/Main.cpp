@@ -5,17 +5,17 @@
 int main()
 {
 
-    Quikmath::Mat3 m(2, 3, 1,
-        2, 1, 4,
-        5, 3, 2);
+    Quikmath::Mat3 m(7, 6, 3,
+        4, 2, 5,
+        10, 6, 4);
 
-    Quikmath::Mat3 n(5, 3, 2,
-        2, 1, 1,
-        5, 3, 2);
+    Quikmath::Mat3 n(3, 2, 1,
+        5, 3, 3,
+        4, 2, 1);
 
-    m -= n;
+    Quikmath::Mat3 p = m * n;
 
-    m.show();
+    p.show();
 
     return 0;
 }

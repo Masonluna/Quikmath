@@ -11,23 +11,19 @@ namespace Quikmath {
 	Vec2::Vec2(const Vec2& vec) : x(vec.x), y(vec.y)
 	{}
 
-	Vec2& Vec2::operator=(const Vec2& vec)
+	void Vec2::operator=(const Vec2& vec)
 	{
 		x = vec.x;
 		y = vec.y;
-
-		return *this;
 	}
 
 	Vec2::~Vec2()
 	{}
 
-	Vec2& Vec2::operator+=(const Vec2& vec)
+	void Vec2::operator+=(const Vec2& vec)
 	{
 		x += vec.x;
 		y += vec.y;
-
-		return *this;
 	}
 
 	Vec2 Vec2::operator+(const Vec2& vec) const
@@ -35,12 +31,10 @@ namespace Quikmath {
 		return Vec2(x + vec.x, y + vec.y);
 	}
 
-	Vec2& Vec2::operator-=(const Vec2& vec)
+	void Vec2::operator-=(const Vec2& vec)
 	{
 		x -= vec.x;
 		y -= vec.y;
-
-		return *this;
 	}
 
 	Vec2 Vec2::operator-(const Vec2& vec) const
@@ -48,12 +42,10 @@ namespace Quikmath {
 		return Vec2(x - vec.x, y - vec.y);
 	}
 
-	Vec2& Vec2::operator*=(const float n)
+	void Vec2::operator*=(const float n)
 	{
 		x *= n;
 		y *= n;
-
-		return *this;
 	}
 
 	Vec2 Vec2::operator*(const float n) const
@@ -61,12 +53,10 @@ namespace Quikmath {
 		return Vec2(x * n, y * n);
 	}
 
-	Vec2& Vec2::operator/=(const float n)
+	void Vec2::operator/=(const float n)
 	{
 		x /= n;
 		y /= n;
-
-		return *this;
 	}
 
 	Vec2 Vec2::operator/(const float n) const

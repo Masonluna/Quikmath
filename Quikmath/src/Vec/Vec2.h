@@ -11,24 +11,24 @@ namespace Quikmath {
 
 		// Copy Constructors
 		Vec2(const Vec2& vec);
-		Vec2& operator=(const Vec2& vec);
+		void operator=(const Vec2& vec);
 
 		// Destructor
 		~Vec2();
 
 		// ---------- Operations ----------
 		// Addition/Subtraction
-		Vec2& operator+=(const Vec2& vec);
+		void operator+=(const Vec2& vec);
 		Vec2 operator+(const Vec2& vec) const;
 
-		Vec2& operator-=(const Vec2& vec);
+		void operator-=(const Vec2& vec);
 		Vec2 operator-(const Vec2& vec) const;
 
 		// Scalar Multiplication/Division
-		Vec2& operator*=(const float n);
+		void operator*=(const float n);
 		Vec2 operator*(const float n) const;
 
-		Vec2& operator/=(const float n);
+		void operator/=(const float n);
 		Vec2 operator/(const float n) const;
 
 		// Dot/Cross
