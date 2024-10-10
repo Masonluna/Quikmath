@@ -165,11 +165,51 @@ namespace Quikmath {
 	void Mat3::setAsIdentity()
 	{
 		for (int i = 0; i < 9; i++) {
-			matData[i] = 0;
+			matData[i] = 0.0f;
 		}
 
-		matData[0] = 1;
-		matData[4] = 1;
-		matData[8] = 1;
+		matData[0] = 1.0f;
+		matData[4] = 1.0f;
+		matData[8] = 1.0f;
 	}
+
+	void Mat3::setAsInverseOf(const Mat3& mat)
+	{
+		float t1 = mat.matData[0] * mat.matData[4];
+		float t2 = mat.matData[0] * mat.matData[7];
+		float t3 = mat.matData[3] * mat.matData[1];
+		float t4 = mat.matData[6] * mat.matData[1];
+		float t5 = mat.matData[3] * mat.matData[2];
+		float t6 = mat.matData[6] * mat.matData[2];
+
+		float det = (t1 * mat.matData[8] - t2 * mat.matData[5] - t3 * mat.matData[8] + t4 * mat.matData[5] + t5 * mat.matData[7] - t6 * mat.matData[4]);
+
+		if (det == 0.0) return;
+
+		float invd = 1.0f / det;
+
+		float m0 = (mat.matData[4] * mat.matData[8] - mat.matData[7] * mat.matData[5]) * invd;
+		float m3 = -(mat.matData[3] * mat.matData[8] - mat.matData[6] * mat.matData[5]) * invd;
+		float m6 = (mat.matData[3] * mat.matData[7] - mat.matData[6] * mat.matData[4]) * invd;
+
+		float m1 = -(mat.matData[1] * mat.matData[8] - mat.matData[7] * mat.matData[2]) * invd;
+		float m4 = (mat.matData[0] * mat.matData[8] - t6) * invd;
+		float m7 = -(t2 - t4) * invd;
+
+		float m2 = (mat.matData[1] * mat.matData[5] - mat.matData[4] * mat.matData[2]) * invd;
+		float m5 = -(mat.matData[0] * mat.matData[5] - t5) * invd;
+		float m8 = (t1 - t3) * invd;
+
+		matData[0] = m0;
+		matData[3] = m3;
+		matData[6] = m6;
+		matData[1] = m1;
+		matData[4] = m4;
+		matData[7] = m7;
+		matData[2] = m2;
+		matData[5] = m5;
+		matData[8] = m8;
+	}
+
+
 }

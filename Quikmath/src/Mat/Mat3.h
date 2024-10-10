@@ -42,6 +42,7 @@ namespace Quikmath {
 		Mat3 operator*(const Mat3& mat);
 
 		void setAsIdentity();
+		void setAsInverseOf(const Mat3& mat);
 
 	private:
 	public:
