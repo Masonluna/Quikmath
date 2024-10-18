@@ -43,6 +43,8 @@ namespace Quikmath {
 
 		void setAsIdentity();
 		void setAsInverseOf(const Mat3& mat);
+		Mat3 getInverse();
+		void invert();
 
 	private:
 	public:

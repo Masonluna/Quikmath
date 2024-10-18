@@ -211,5 +211,15 @@ namespace Quikmath {
 		matData[8] = m8;
 	}
 
+	Mat3 Mat3::getInverse()
+	{
+		Mat3 temp;
+		temp.setAsInverseOf(*this);
+		return temp;
+	}
 
+	void Mat3::invert()
+	{
+		setAsInverseOf(*this);
+	}
 }
