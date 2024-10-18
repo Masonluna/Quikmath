@@ -211,7 +211,7 @@ namespace Quikmath {
 		matData[8] = m8;
 	}
 
-	Mat3 Mat3::getInverse()
+	Mat3 Mat3::getInverse() const
 	{
 		Mat3 temp;
 		temp.setAsInverseOf(*this);
@@ -221,5 +221,35 @@ namespace Quikmath {
 	void Mat3::invert()
 	{
 		setAsInverseOf(*this);
+	}
+	void Mat3::setAsTransposeOf(const Mat3& mat)
+	{
+		matData[0] = mat.matData[0];
+		matData[3] = mat.matData[1];
+		matData[6] = mat.matData[2];
+
+		matData[1] = mat.matData[3];
+		matData[4] = mat.matData[4];
+		matData[7] = mat.matData[5];
+
+		matData[2] = mat.matData[6];
+		matData[5] = mat.matData[7];
+		matData[8] = mat.matData[8];
+	}
+	Mat3 Mat3::getTranspose() const
+	{
+		Mat3 temp;
+		temp.setAsTransposeOf(*this);
+		return temp;
+	}
+	Vec3 Mat3::operator*(const Vec3& vec) const
+	{
+		return Vec3(matData[0] * vec.x + matData[3] * vec.y + matData[6] + vec.z,
+					matData[1] * vec.x + matData[4] * vec.y + matData[7] * vec.z,
+					matData[2] * vec.x + matData[5] * vec.y + matData[8] * vec.z);
+	}
+	Vec3 Mat3::transformVec(const Vec3& vec) const
+	{
+		return (*this) * vec;
 	}
 }

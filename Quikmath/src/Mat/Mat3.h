@@ -1,4 +1,7 @@
 #pragma once
+#include "Vec2.h"
+#include "Vec3.h"
+
 #include <iostream>
 
 namespace Quikmath {
@@ -43,8 +46,13 @@ namespace Quikmath {
 
 		void setAsIdentity();
 		void setAsInverseOf(const Mat3& mat);
-		Mat3 getInverse();
+		Mat3 getInverse() const;
 		void invert();
+		void setAsTransposeOf(const Mat3& mat);
+		Mat3 getTranspose() const;
+
+		Vec3 operator*(const Vec3& vec) const;
+		Vec3 transformVec(const Vec3& vec) const;
 
 	private:
 	public:
